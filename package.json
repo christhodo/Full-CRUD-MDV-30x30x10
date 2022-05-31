@@ -9,9 +9,11 @@
     "serve:web": "ng serve --port 4300 --open",
     "serve:api": "json-server server/db.json",
     "serve:all": "concurrently \"npm run serve:api\" \"npm run serve:web\"",
+    "electron": "nx build && electron .",
     "build": "nx build",
     "test": "nx test"
   },
+  "main": "main.js",
   "private": true,
   "dependencies": {
     "@angular/animations": "~14.1.1",
@@ -48,6 +50,7 @@
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "cypress": "^10.2.0",
+    "electron": "^20.1.3",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
