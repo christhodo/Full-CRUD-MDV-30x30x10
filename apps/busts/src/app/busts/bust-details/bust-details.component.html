@@ -1,0 +1,70 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <span *ngIf="currentBust?.id; else elseBlock">
+        {{ originalName | titlecase }}
+      </span>
+      <ng-template #elseBlock>Select a Bust</ng-template>
+    </mat-card-title>
+  </mat-card-header>
+  <form #form="ngForm" (submit)="saved.emit(currentBust)">
+    <mat-card-content>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          [(ngModel)]="currentBust.name"
+          name="name"
+          required
+          type="text"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Position</mat-label>
+        <textarea
+          matInput
+          placeholder="position"
+          [(ngModel)]="currentBust.position"
+          name="position"
+          type="text"
+        ></textarea>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>ADP</mat-label>
+        <textarea
+          matInput
+          placeholder="adp"
+          [(ngModel)]="currentBust.adp"
+          name="adp"
+          type="text"
+        ></textarea>
+      </mat-form-field>
+      <section class="full-width" appearance="outline" floatlabel></section>
+      <mat-form-field class="full-width">
+        <textarea
+          matInput
+          placeholder="Comments"
+          [(ngModel)]="currentBust.comments"
+          type="text"
+          name="comments"
+          required
+        ></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <section></section>
+    <mat-card-actions>
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        mat-button
+        color="primary"
+      >
+        Save
+      </button>
+      <button type="button" mat-button (click)="cancelled.emit()">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

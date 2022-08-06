@@ -1,0 +1,17 @@
+<div class="busts-containers">
+  <div class="busts-list">
+    <fantasy-football-busts-busts-list
+      [busts]="busts$ | async"
+      (selected)="selectBust($event)"
+      (deleted)="deleteBust($event)"
+    >
+    </fantasy-football-busts-busts-list>
+    <div class="bust-details">
+      <fantasy-football-busts-bust-details
+        [bust]="selectedBust"
+        (cancelled)="reset()"
+        (saved)="saveBust($event)"
+      ></fantasy-football-busts-bust-details>
+    </div>
+  </div>
+</div>

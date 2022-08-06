@@ -14,7 +14,16 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@fantasy-football-busts/api-interfaces": [
+        "libs/api-interfaces/src/index.ts"
+      ],
+      "@fantasy-football-busts/core-data": ["libs/core-data/src/index.ts"],
+      "@fantasy-football-busts/core-state": ["libs/core-state/src/index.ts"],
+      "@fantasy-football-busts/environment": ["libs/environment/src/index.ts"],
+      "@fantasy-football-busts/material": ["libs/material/src/index.ts"],
+      "@fantasy-football-busts/ui-login": ["libs/ui-login/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

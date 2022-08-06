@@ -1,0 +1,31 @@
+<div class="busts-containers">
+  <div class="busts-list">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> Bust List </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item
+            *ngFor="let bust of busts"
+            (click)="selected.emit(bust)"
+            class="mat-list-item"
+          >
+            <h3 matLine>{{ bust.name | titlecase }}</h3>
+            <p matLine>Position: {{ bust.position }}</p>
+            <p matLine>ADP: {{ bust.adp }}</p>
+
+            <p matLine>Comments: {{ bust.comments }}</p>
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="deleted.emit(bust.id); $event.stopImmediatePropagation()"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
